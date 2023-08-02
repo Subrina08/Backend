@@ -30,10 +30,9 @@ public class EmployeeAttendanceService {
     
     public void calculateHoursWorked(EmployeeAttendance attendance) {
         if (attendance.getInTime() != null && attendance.getOutTime() != null) {
-            // Find all EmployeeAttendance records for the same employee and date
+            
             List<EmployeeAttendance> attendancesForDate = attendanceRepository.findByEmployeeAndDate(attendance.getEmployee(), attendance.getDate());
 
-            // Calculate the total minutes worked for that date
             long totalMinutesWorked = 0;
             for (EmployeeAttendance attendanceRecord : attendancesForDate) {
                 if (attendanceRecord.getInTime() != null && attendanceRecord.getOutTime() != null) {
@@ -42,10 +41,10 @@ public class EmployeeAttendanceService {
                 }
             }
 
-            // Set the total hours worked for that date
+            
             attendance.setHoursWorked(totalMinutesWorked);
         } else {
-            attendance.setHoursWorked(0); // Set hoursWorked to 0 if either inTime or outTime is not set
+            attendance.setHoursWorked(0);
         }
     }
 
@@ -57,7 +56,7 @@ public class EmployeeAttendanceService {
 
         List<EmployeeAttendance> attendances = attendanceRepository.findByEmployeeAndOutTimeIsNull(employee);
 
-        // Find the latest attendance with outTime as NULL (if any)
+      
         EmployeeAttendance existingAttendance = null;
         for (EmployeeAttendance attendance : attendances) {
             if (attendance.getOutTime() == null) {
@@ -79,7 +78,7 @@ public class EmployeeAttendanceService {
         newAttendance.setEmployee(employee);
         newAttendance.setDate(currentTime.toLocalDate());
         newAttendance.setInTime(currentTime);
-        newAttendance.setOutTime(null); // Make sure outTime is initially set to null
+        newAttendance.setOutTime(null); 
         calculateHoursWorked(newAttendance);
 
         attendanceRepository.save(newAttendance);
@@ -113,14 +112,10 @@ public class EmployeeAttendanceService {
     	return attendanceRepository.findTotalHoursWorked(empId);
     }
     
-//    public List<AttendanceReport> getAttendanceReport() {
-//        return attendanceRepository.getAttendanceReport();
-//    }
     
     public List<AttendanceReportDTO> getAttendanceReport() {
         return attendanceRepository.getAttendanceReport();
     }
     
 
-    // ... Other methods as needed
 }

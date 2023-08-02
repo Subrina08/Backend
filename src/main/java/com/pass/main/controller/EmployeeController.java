@@ -55,7 +55,7 @@ public class EmployeeController {
             if (employee != null) {
                 employee.setName(updatedEmployee.getName());
                 employee.setLocation(updatedEmployee.getLocation());
-                //employee.setShift(updatedEmployee.getShift());
+                
                 Employee updated = employeeService.updateEmployee(employee);
                 return ResponseEntity.ok(updated);
             } else {

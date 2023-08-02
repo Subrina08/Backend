@@ -30,61 +30,19 @@ public class EmpController {
 	private MyUserService userService;
 	@PostMapping("/add")
 	public Emp addEmp(@RequestBody Emp emp) {
-		/* Fetch the user from emp */
+		
 		User user = emp.getUser();
 		
-		/* Encode the password given as Plain text from UI */
+	
 		user.setPassword(encoder.encode(user.getPassword()));
 		
-		/* Set the role: EMPLOYEE */
+		
 		user.setRole("EMPLOYEE");
 		
-		/* Save the user in DB */
+	
 		user  = userService.insert(user);
 		return empService.insert(emp);
 
 	}
 
-
- 
-
-//	
-//	@Autowired
-//	private ManagerService managerService; 
-//	
-//	
-//	public ResponseEntity<?> addEmp(@PathVariable("managerId") int managerId, 
-//			@RequestBody Emp emp) {
-//		/* validate managerId and fetch manager obj from DB */
-//		Manager manager  = managerService.getById(managerId);
-//		if(manager == null)
-//			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-//					.body("Manager ID invalid");
-//		
-//		/* attach manager to emp */
-//		emp.setManager(manager);
-//		
-//		/* Fetch the user from emp */
-//		User user = emp.getUser();
-//		
-//		/* Encode the password given as Plain text from UI */
-//		user.setPassword(encoder.encode(user.getPassword()));
-//		
-//		/* Set the role: EMPLOYEE */
-//		user.setRole("EMPLOYEE");
-//		
-//		/* Save the user in DB */
-//		user  = userService.insert(user);
-		
-		/* Attach user to emp and save emp */
-//		emp.setUser(user);
-//		return ResponseEntity.status(HttpStatus.OK)
-//				.body(emp);
-	}
-	
-
-
-		
-
-
-
+}

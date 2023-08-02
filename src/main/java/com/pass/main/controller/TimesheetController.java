@@ -29,43 +29,42 @@ public class TimesheetController {
         this.timesheetService = timesheetService;
     }
 
-    // Endpoint to create a new timesheet
+
     @PostMapping
     public Timesheet createTimesheet(@RequestBody Timesheet timesheet) {
         return timesheetService.createTimesheet(timesheet);
     }
 
-    // Endpoint to update an existing timesheet by ID
+   
     @PutMapping("/{id}")
     public Timesheet updateTimesheet(@PathVariable Long id, @RequestBody Timesheet updatedTimesheet) {
         return timesheetService.updateTimesheet(id, updatedTimesheet);
     }
 
-    // Endpoint to delete a timesheet by ID
+    
     @DeleteMapping("/{id}")
     public void deleteTimesheet(@PathVariable Long id) {
         timesheetService.deleteTimesheet(id);
     }
 
-    // Endpoint to get a timesheet by ID
     @GetMapping("/{id}")
     public Timesheet getTimesheetById(@PathVariable Long id) {
         return timesheetService.getTimesheetById(id);
     }
 
-    // Endpoint to get all timesheets
+
     @GetMapping
     public List<Timesheet> getAllTimesheets() {
         return timesheetService.getAllTimesheets();
     }
 
-    // Endpoint to approve a timesheet by ID
+
     @PutMapping("/{id}/approve")
     public Timesheet approveTimesheet(@PathVariable Long id) {
         return timesheetService.updateTimesheetStatus(id, "Approved");
     }
 
-    // Endpoint to reject a timesheet by ID
+
     @PutMapping("/{id}/reject")
     public Timesheet rejectTimesheet(@PathVariable Long id) {
         return timesheetService.updateTimesheetStatus(id, "Rejected");

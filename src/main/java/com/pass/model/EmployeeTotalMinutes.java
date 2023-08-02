@@ -57,14 +57,8 @@ public class EmployeeTotalMinutes {
 	}
 
 	public EmployeeTotalMinutes() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
-	
-	
-	
-
-    // Getters and setters, constructors, etc.
     
 }
 

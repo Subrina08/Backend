@@ -25,12 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	private MyUserService myUserService;
 	 @Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// here I am going to build my own AuthManager that will read user details from the DB
-		 
-//		 auth.inMemoryAuthentication()
-//		 .withUser("msdhoni@incedo.com").password(getEncoder().encode("csk")).authorities("MANAGER")
-//		 .and()
-//		 .withUser("vkohli@incedo.com").password(getEncoder().encode("rcb")).authorities("EMPLOYEE");
+		
 		 auth.authenticationProvider(getProvider());
 		 }
 		 
@@ -38,13 +33,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	 private AuthenticationProvider getProvider() {
 		DaoAuthenticationProvider dao = new DaoAuthenticationProvider();
 		dao.setPasswordEncoder(getEncoder());
-		//to point to DB, go to service first. 
+	
 		dao.setUserDetailsService(myUserService);
 		return dao;
 	}
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// here, I am going to list out my api's along with User permissions
+		
 		 http.authorizeRequests()
 		 
 		 .antMatchers(HttpMethod.GET, "/user").authenticated()

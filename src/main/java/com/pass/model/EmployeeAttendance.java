@@ -30,9 +30,6 @@ public class EmployeeAttendance {
 
     @Column(name = "out_time")
     private LocalDateTime outTime;
-    
-//    @Column(name = "hoursWorked")
-//    private Duration hoursWorked;
 
 	public Long getAttendanceId() {
 		return attendanceId;
@@ -74,13 +71,6 @@ public class EmployeeAttendance {
 		this.outTime = outTime;
 	}
 
-
-//	EmployeeAttendance attendance = new EmployeeAttendance();
-//    @Column(name = "hoursWorked")
-//
-//	double hoursWorked = attendance.calculateHoursWorked();
-	 
-    //EmployeeAttendance attendance = EmployeeAttendanceRepository1.findById(attendanceId).orElse(null);
     
     private double hoursWorked;
 

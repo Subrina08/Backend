@@ -21,10 +21,7 @@ public class Employee {
     @Column(name = "location")
     private String location;
     
-//    @Enumerated(EnumType.STRING)
-//    @Column(name = "shift")
-//    private Shift shift;
-	
+
 
     
     public Employee() {
@@ -33,10 +30,10 @@ public class Employee {
     public Employee(String name, String location) {
         this.name = name;
         this.location = location;
-        //this.shift = shift;
+       
     }
 
-    // Getters and Setters
+   
     public Long getAccessCardId() {
         return accessCardId;
     }
@@ -62,15 +59,6 @@ public class Employee {
     }
     
 
-//    public Shift getShift() {
-//        return shift;
-//    }
-//
-//    public void setShift(Shift shift) {
-//        this.shift = shift;
-//    }
-
-    // Optional: toString() method for printing the object (useful for debugging)
     @Override
     public String toString() {
         return "Employee{" +

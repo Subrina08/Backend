@@ -122,14 +122,9 @@ public class Timesheet {
 		this.hoursWorked = hoursWorked;
 		this.description = description;
 	}
-//	public Timesheet() {
-//        // Empty constructor is required by Hibernate
-//    }
+
 	public Timesheet() {
         this.status = "Pending";
     }
-    
-    
 
-    // Getters and setters
 }

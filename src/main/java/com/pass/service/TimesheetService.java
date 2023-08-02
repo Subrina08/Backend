@@ -21,9 +21,7 @@ public class TimesheetService {
     }
 
     public Timesheet createTimesheet(Timesheet timesheet) {
-        // Add any business logic or validation before saving the timesheet
-        // For example, you can calculate total hours worked for the week
-        // ...
+      
 
         return timesheetRepository.save(timesheet);
     }
@@ -36,7 +34,7 @@ public class TimesheetService {
 
         Timesheet existingTimesheet = optionalTimesheet.get();
 
-        // Update the relevant fields of the existing timesheet
+     
         existingTimesheet.setEmployeeName(updatedTimesheet.getEmployeeName());
         existingTimesheet.setEmployeeId(updatedTimesheet.getEmployeeId());
         existingTimesheet.setFromDate(updatedTimesheet.getFromDate());

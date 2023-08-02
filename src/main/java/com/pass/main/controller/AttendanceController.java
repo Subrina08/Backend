@@ -57,10 +57,10 @@ public class AttendanceController {
     public ResponseEntity<EmployeeAttendance> updateAttendance(@PathVariable Long attendanceId, @RequestBody EmployeeAttendance updatedAttendance) {
         EmployeeAttendance attendance = attendanceService.getAttendanceById(attendanceId);
         if (attendance != null) {
-            // Update the necessary fields
+           
             attendance.setInTime(updatedAttendance.getInTime());
             attendance.setOutTime(updatedAttendance.getOutTime());
-            // Set other fields as needed
+            
 
             EmployeeAttendance updated = attendanceService.updateAttendance(attendance);
             return ResponseEntity.ok(updated);

@@ -32,7 +32,7 @@ public class EmployeeTotalMinutesService {
 
         long totalMinutes = 0;
         for (EmployeeAttendance attendance : attendances) {
-            // Assuming hoursWorked is in minutes
+          
             totalMinutes += attendance.getHoursWorked();
         }
 

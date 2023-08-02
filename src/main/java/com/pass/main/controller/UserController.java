@@ -23,11 +23,8 @@ public class UserController {
 	@Autowired
     private UserRepository userRepository;
 	
-	@GetMapping("/login") //by the time we reach here, spring has already verified username/password
-	public UserDetails login(Principal principal) { //injecting principal in method
-		 //I need username from spring, so that i can go to db and fetch role and give to UI dev. 
-	
-		/* An Interface called as 'Principal' in Spring security can help us read username */
+	@GetMapping("/login") 
+	public UserDetails login(Principal principal) { 
 		String username = principal.getName();
 		UserDetails user = userService.loadUserByUsername(username);
 		return user; 

@@ -7,5 +7,5 @@ import com.pass.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    // You can add custom queries for specific requirements if needed
+    
 }

@@ -58,8 +58,6 @@ public class User implements UserDetails  {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// we have role for the user as String. but spring works with Authorities. 
-		//so we must now convert role into authorities.
 		SimpleGrantedAuthority sga = new SimpleGrantedAuthority(role);
 		Collection<GrantedAuthority> list = new ArrayList<>();
 		list.add(sga);
@@ -67,19 +65,19 @@ public class User implements UserDetails  {
 	}
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
+	
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
+	
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
+	
 		return true;
 	}
 

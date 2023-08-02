@@ -20,13 +20,11 @@ public class ManagerService {
 	
 	
 	public Manager insert(Manager manager) {
-		
-		 // Create a new Employee record based on the Emp record
+	
         Employee employee = new Employee();
         employee.setName(manager.getName());
         employee.setLocation(manager.getAddress());
 
-        // Save the Employee record
         employeeService.addEmployee(employee);
         
 		return managerRepository.save(manager);
@@ -40,7 +38,7 @@ public class ManagerService {
 		if(!optional.isPresent())
 			return null;
 		
-		return optional.get(); //returns manager
+		return optional.get();
 	}
 	
 	

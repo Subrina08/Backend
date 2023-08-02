@@ -25,20 +25,20 @@ public class ManagerController {
 	private MyUserService userService; 
 	@PostMapping("/add")
 	public Manager postManager(@RequestBody Manager manager) {
-		/*Read user info given as input and attach it to user object.  */
+		
 		User user = manager.getUser();
 		user.setRole("MANAGER");
 		
-		/* Encode the password before saving in DB */
+		
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		
-		/* Save user in DB and fetch saved object */
+		
 		user = userService.insert(user);
 		
-		/* attach user to manager */
+	
 		manager.setUser(user);
 		
-		/* Save manager in DB */
+		
 		return managerService.insert(manager);
 	}
 }

@@ -17,7 +17,7 @@ public class Manager {
 	private String address;
 	
 	@OneToOne
-	private User user;  //this is because, manager will login in
+	private User user;  
 	
 	public int getId() {
 		return id;
